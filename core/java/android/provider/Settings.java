@@ -347,7 +347,6 @@ public final class Settings {
      * Input: Nothing.
      * <p>
      * Output: Nothing.
-
      */
     @SdkConstant(SdkConstantType.ACTIVITY_INTENT_ACTION)
     public static final String ACTION_WIFI_SETTINGS =
@@ -3812,64 +3811,6 @@ public final class Settings {
         public static final String DIALER_OPENCNAM_AUTH_TOKEN = "dialer_opencnam_auth_token";
 
         /**
-         * Settings to backup. This is here so that it's in the same place as the settings
-         * keys and easy to update.
-         *
-         * NOTE: Settings are backed up and restored in the order they appear
-         *       in this array. If you have one setting depending on another,
-         *       make sure that they are ordered appropriately.
-         *
-         * @hide
-         */
-        public static final String[] SETTINGS_TO_BACKUP = {
-            STAY_ON_WHILE_PLUGGED_IN,   // moved to global
-            WIFI_USE_STATIC_IP,
-            WIFI_STATIC_IP,
-            WIFI_STATIC_GATEWAY,
-            WIFI_STATIC_NETMASK,
-            WIFI_STATIC_DNS1,
-            WIFI_STATIC_DNS2,
-            BLUETOOTH_ACCEPT_ALL_FILES,
-            BLUETOOTH_DISCOVERABILITY,
-            BLUETOOTH_DISCOVERABILITY_TIMEOUT,
-            FONT_SCALE,
-            DIM_SCREEN,
-            SCREEN_OFF_TIMEOUT,
-            SCREEN_BRIGHTNESS,
-            SCREEN_BRIGHTNESS_MODE,
-            SCREEN_AUTO_BRIGHTNESS_ADJ,
-            VIBRATE_INPUT_DEVICES,
-            MODE_RINGER_STREAMS_AFFECTED,
-            TEXT_AUTO_REPLACE,
-            TEXT_AUTO_CAPS,
-            TEXT_AUTO_PUNCTUATE,
-            TEXT_SHOW_PASSWORD,
-            AUTO_TIME,                  // moved to global
-            AUTO_TIME_ZONE,             // moved to global
-            TIME_12_24,
-            DATE_FORMAT,
-            DTMF_TONE_WHEN_DIALING,
-            DTMF_TONE_TYPE_WHEN_DIALING,
-            HEARING_AID,
-            TTY_MODE,
-            MASTER_MONO,
-            SOUND_EFFECTS_ENABLED,
-            HAPTIC_FEEDBACK_ENABLED,
-            POWER_SOUNDS_ENABLED,       // moved to global
-            DOCK_SOUNDS_ENABLED,        // moved to global
-            LOCKSCREEN_SOUNDS_ENABLED,
-            SHOW_WEB_SUGGESTIONS,
-            SIP_CALL_OPTIONS,
-            SIP_RECEIVE_CALLS,
-            POINTER_SPEED,
-            VIBRATE_WHEN_RINGING,
-            RINGTONE,
-            LOCK_TO_APP_ENABLED,
-            NOTIFICATION_SOUND,
-            ACCELEROMETER_ROTATION
-        };
-
-        /**
          * These are all public system settings
          *
          * @hide
@@ -3921,6 +3862,392 @@ public final class Settings {
             PUBLIC_SETTINGS.add(SHOW_WEB_SUGGESTIONS);
             PUBLIC_SETTINGS.add(VIBRATE_WHEN_RINGING);
         }
+
+        /**
+         * header image package to use for daylight header - package name - null if default
+         * @hide
+         */
+        public static final String STATUS_BAR_DAYLIGHT_HEADER_PACK = "status_bar_daylight_header_pack";
+
+        /**
+         * Current active provider - available currently "static" "daylight"
+         * @hide
+         */
+        public static final String STATUS_BAR_CUSTOM_HEADER_PROVIDER = "status_bar_custom_header_provider";
+
+        /**
+         * Manual override picture to use
+         * @hide
+         */
+        public static final String STATUS_BAR_CUSTOM_HEADER_IMAGE = "status_bar_custom_header_image";
+
+        /**
+         * Whether the user has enabled headsup (Default 1)
+         * HeadsUp is enabled by default within its Settings.Global.HEADS_UP_NOTIFICATIONS_ENABLED
+         * setting. Avoid changing low level implementations and use a System setting to
+         * override per-user heads up on/off preference.
+         *
+         * Enable headsup = 1 (on by default)
+         * Disable headsup = 0
+         *
+         * @see com.android.systemui.statusbar.BaseStatusBar#addNotification
+         * @hide
+         */
+        public static final String HEADS_UP_USER_ENABLED = "heads_up_user_enabled";
+
+        /** @hide */ public static final int HEADS_UP_USER_OFF = 0;
+        /** @hide */ public static final int HEADS_UP_USER_ON = 1;
+
+        /**
+         * Enable flashlight notification
+         * @hide
+         */
+        public static final String FLASHLIGHT_NOTIFICATION = "flashlight_notification";
+
+        /**
+         * Whether to display music track title within the music qs tile
+         * @hide
+         */
+        public static final String MUSIC_TILE_TITLE = "music_tile_title";
+
+        /**
+         * Whether to display qs tile titles in the qs panel
+         * @hide
+         */
+        public static final String QS_TILE_TITLE_VISIBILITY = "qs_tile_title_visibility";
+
+        /**
+         * Disable dashboard conditions in settings
+         * @hide
+         */
+        public static final String DISABLE_DASHBOARD_CONDITIONS = "disable_dashboard_conditions";
+
+        /**
+         * Disable dashboard suggestions in settings
+         * @hide
+         */
+        public static final String DISABLE_SUGGESTIONS = "disable_suggestions";
+
+        /**
+         * Remove tile summaries in settings
+         * @hide
+         */
+        public static final String REMOVE_TILE_SUMMARY = "remove_tile_summary";
+
+        /**
+         * Dim amount control for power and reboot dialogs
+         * @hide
+         */
+        public static final String POWER_REBOOT_DIALOG_DIM = "power_reboot_dialog_dim";
+
+        /**
+         * Whether to display data activity arrows for wifi/data connections
+         * @hide
+         */
+        public static final String DATA_ACTIVITY_ARROWS = "data_activity_arrows";
+
+        /**
+         * Volume rocker wake
+         * @hide
+         */
+        public static final String VOLUME_ROCKER_WAKE = "volume_rocker_wake";
+
+        /**
+         * Volume key controls ringtone or media sound stream
+         * @hide
+         */
+        public static final String VOLUME_KEYS_CONTROL_MEDIA_STREAM =
+                "volume_keys_control_media_stream";
+
+        /**
+         * Whether or not volume button music controls should be enabled to seek media tracks
+         * @hide
+         */
+        public static final String VOLUME_ROCKER_MUSIC_CONTROLS = "volume_rocker_music_controls";
+
+        /**
+         * Swap volume buttons when the screen is rotated
+         * 0 - Disabled
+         * 1 - Enabled (screen is rotated by 90 or 180 degrees: phone, hybrid)
+         * 2 - Enabled (screen is rotated by 180 or 270 degrees: tablet)
+         * @hide
+         */
+        public static final String SWAP_VOLUME_BUTTONS = "swap_volume_buttons";
+
+        /**
+         * Toast icon
+         * @hide
+         */
+        public static final String TOAST_ICON = "toast_icon";
+
+        /**
+         * Show the four 4g network icon instead of lte
+         * @hide
+         */
+        public static final String SHOW_LTE_FOURGEE = "show_lte_fourgee";
+
+        /**
+         * MediaScanner behavior on boot.
+         * 0 = enabled
+         * 1 = ask (notification)
+         * 2 = disabled
+         * @hide
+         */
+        public static final String MEDIA_SCANNER_ON_BOOT = "media_scanner_on_boot";
+
+	/**
+         * Change quick settings tiles animation style
+         *
+         * @hide
+         */
+        public static final String ANIM_TILE_STYLE = "anim_tile_style";
+
+	/**
+         * Change quick settings tiles animation duration
+         *
+         * @hide
+         */
+        public static final String ANIM_TILE_DURATION = "anim_tile_duration";
+
+        /**
+         * Change quick settings tiles interpolator
+         *
+         * @hide
+         */
+        public static final String ANIM_TILE_INTERPOLATOR = "anim_tile_interpolator";
+
+        /**
+         * Whether to display set of animations when prompting the power menu
+         *
+         * @hide
+         */
+        public static final String POWER_MENU_ANIMATIONS = "power_menu_animations";
+
+        /**
+         * Should the alarm be shown in fullscreen instead of heads-up
+         *
+         * @hide
+         */
+        public static final String SHOW_ALARM_FULLSCREEN = "show_alarm_fullscreen";
+
+        /**
+         * Whether to show Brightness Icon On Brightness Slider
+         * @hide
+         */
+        public static final String QS_SHOW_BRIGHTNESS_ICON = "qs_show_brightness_icon";
+
+        /**
+         * Whether to vibrate when quick settings tile is pressed.
+         *
+         * @hide
+         */
+        public static final String QUICK_SETTINGS_TILES_VIBRATE = "quick_settings_vibrate";
+
+        /**
+         * Show or hide clock
+         * 0 - hide
+         * 1 - show (default)
+         * @hide
+         */
+        public static final String STATUS_BAR_CLOCK = "status_bar_clock";
+
+        /**
+         * Whether to show seconds next to clock in status bar
+         * default: off
+         * @hide
+         */
+        public static final String STATUS_BAR_CLOCK_SECONDS = "status_bar_clock_seconds";
+
+        /**
+         * AM/PM Style for clock options
+         * 0 - Normal AM/PM
+         * 1 - Small AM/PM
+         * 2 - No AM/PM
+         * @hide
+         */
+        public static final String STATUSBAR_CLOCK_AM_PM_STYLE = "statusbar_clock_am_pm_style";
+
+        /**
+         * Style of clock
+         * 0 - Right Clock
+         * 1 - Center Clock
+         * 2 - Left Clock
+         * @hide
+         */
+        public static final String STATUSBAR_CLOCK_STYLE = "statusbar_clock_style";
+
+        /**
+         * Shows custom date before clock time
+         * 0 - No Date
+         * 1 - Small Date
+         * 2 - Normal Date
+         * @hide
+         */
+        public static final String STATUSBAR_CLOCK_DATE_DISPLAY = "statusbar_clock_date_display";
+
+        /**
+         * Sets the date string style
+         * 0 - Regular style
+         * 1 - Lowercase
+         * 2 - Uppercase
+         * @hide
+         */
+        public static final String STATUSBAR_CLOCK_DATE_STYLE = "statusbar_clock_date_style";
+
+        /**
+         * Stores the java DateFormat string for the date
+         * @hide
+         */
+        public static final String STATUSBAR_CLOCK_DATE_FORMAT = "statusbar_clock_date_format";
+
+        /**
+         * Position of date
+         * 0 - Left of clock
+         * 1 - Right of clock
+         * @hide
+         */
+        public static final String STATUSBAR_CLOCK_DATE_POSITION = "statusbar_clock_date_position";
+
+        /**
+         * Whether the proximity sensor will adjust call to speaker
+         * @hide
+         */
+        public static final String PROXIMITY_AUTO_SPEAKER = "proximity_auto_speaker";
+
+        /**
+         * Time delay to activate speaker after proximity sensor triggered
+         * @hide
+         */
+        public static final String PROXIMITY_AUTO_SPEAKER_DELAY = "proximity_auto_speaker_delay";
+
+        /**
+         * Whether the proximity sensor will adjust call to speaker,
+         * only while in call (not while ringing on outgoing call)
+         * @hide
+         */
+        public static final String PROXIMITY_AUTO_SPEAKER_INCALL_ONLY = "proximity_auto_speaker_incall_only";
+
+        /**
+         * show clear all recents button
+         * @hide
+         */
+        public static final String SHOW_CLEAR_ALL_RECENTS = "show_clear_all_recents";
+
+        /**
+         * show location of the clear all recents FAB
+         * @hide
+         */
+        public static final String  RECENTS_CLEAR_ALL_LOCATION = "recents_clear_all_location";
+
+        /**
+         * show the membar in recents
+         *  @hide
+         */
+        public static final String SYSTEMUI_RECENTS_MEM_DISPLAY = "systemui_recents_mem_display";
+
+        /**
+         * Statusbar DU logo
+         * @hide
+         */
+        public static final String STATUS_BAR_DU_LOGO = "status_bar_du_logo";
+
+        /**
+         * custom carrier label. The value is
+         * String.
+         */
+        public static final String CUSTOM_CARRIER_LABEL = "custom_carrier_label";
+
+        /**
+         * Boolean value whether to link ringtone and notification volume
+         *
+         * @hide
+         */
+        public static final String VOLUME_LINK_NOTIFICATION = "volume_link_notification";
+
+        /**
+         * Enable\Disable Bluetooth Battery bar
+         * @hide
+         */
+        public static final String BLUETOOTH_SHOW_BATTERY = "bluetooth_show_battery";
+
+        /**
+         * Whether the phone ringtone should be played in an increasing manner
+         * @hide
+         */
+        public static final String INCREASING_RING = "increasing_ring";
+
+        /**
+         * Start volume fraction for increasing ring volume
+         * @hide
+         */
+        public static final String INCREASING_RING_START_VOLUME = "increasing_ring_start_vol";
+
+        /**
+         * Ramp up time (seconds) for increasing ring
+         * @hide
+         */
+        public static final String INCREASING_RING_RAMP_UP_TIME = "increasing_ring_ramp_up_time";
+
+        /**
+         * Settings to backup. This is here so that it's in the same place as the settings
+         * keys and easy to update.
+         *
+         * NOTE: Settings are backed up and restored in the order they appear
+         *       in this array. If you have one setting depending on another,
+         *       make sure that they are ordered appropriately.
+         *
+         * @hide
+         */
+        public static final String[] SETTINGS_TO_BACKUP = {
+            STAY_ON_WHILE_PLUGGED_IN,   // moved to global
+            WIFI_USE_STATIC_IP,
+            WIFI_STATIC_IP,
+            WIFI_STATIC_GATEWAY,
+            WIFI_STATIC_NETMASK,
+            WIFI_STATIC_DNS1,
+            WIFI_STATIC_DNS2,
+            BLUETOOTH_DISCOVERABILITY,
+            BLUETOOTH_DISCOVERABILITY_TIMEOUT,
+            FONT_SCALE,
+            BLUETOOTH_ACCEPT_ALL_FILES,
+            DIM_SCREEN,
+            SCREEN_OFF_TIMEOUT,
+            SCREEN_BRIGHTNESS,
+            SCREEN_BRIGHTNESS_MODE,
+            SCREEN_AUTO_BRIGHTNESS_ADJ,
+            VIBRATE_INPUT_DEVICES,
+            MODE_RINGER_STREAMS_AFFECTED,
+            TEXT_AUTO_REPLACE,
+            TEXT_AUTO_CAPS,
+            TEXT_AUTO_PUNCTUATE,
+            TEXT_SHOW_PASSWORD,
+            AUTO_TIME,                  // moved to global
+            AUTO_TIME_ZONE,             // moved to global
+            TIME_12_24,
+            DATE_FORMAT,
+            DTMF_TONE_WHEN_DIALING,
+            DTMF_TONE_TYPE_WHEN_DIALING,
+            HEARING_AID,
+            TTY_MODE,
+            MASTER_MONO,
+            SOUND_EFFECTS_ENABLED,
+            HAPTIC_FEEDBACK_ENABLED,
+            POWER_SOUNDS_ENABLED,       // moved to global
+            DOCK_SOUNDS_ENABLED,        // moved to global
+            LOCKSCREEN_SOUNDS_ENABLED,
+            SHOW_WEB_SUGGESTIONS,
+            SIP_CALL_OPTIONS,
+            SIP_RECEIVE_CALLS,
+            POINTER_SPEED,
+            VIBRATE_WHEN_RINGING,
+            RINGTONE,
+            LOCK_TO_APP_ENABLED,
+            NOTIFICATION_SOUND,
+            ACCELEROMETER_ROTATION,
+            INCREASING_RING,
+            INCREASING_RING_START_VOLUME,
+            INCREASING_RING_RAMP_UP_TIME
+        };
 
         /**
          * These are all hidden system settings.
